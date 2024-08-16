@@ -1,0 +1,91 @@
+
+
+### ---------------- RUTAS PARA AUTENTICACIÓN
+
+### Registro de usuario
+POST http://localhost:3000/auth/register
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "testpassword"
+}
+
+### Login de usuario
+POST http://localhost:3000/auth/login
+Content-Type: application/json
+
+{
+  "username": "testuser",
+  "password": "testpassword"
+}
+
+
+### ---------------- RUTAS PARA PROYECTOS
+
+### Crear proyecto
+POST http://localhost:3000/projects
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgxODEyNywiZXhwIjoxNzIzODIxNzI3fQ.gp6mPPiTOPlVyO9agdEY1MOin5mOMNzqfSybuyGaSTI
+Content-Type: application/json
+
+{
+  "name":"testproyect",
+  "description":"testdescription"
+}
+
+### Obtener todos los proyectos
+GET http://localhost:3000/projects
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgxODEyNywiZXhwIjoxNzIzODIxNzI3fQ.gp6mPPiTOPlVyO9agdEY1MOin5mOMNzqfSybuyGaSTI
+
+### Obtener un proyecto por ID
+GET http://localhost:3000/projects/a780b122-2727-4936-9b48-87c77095039d
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgxODEyNywiZXhwIjoxNzIzODIxNzI3fQ.gp6mPPiTOPlVyO9agdEY1MOin5mOMNzqfSybuyGaSTI
+
+### Actualizar un proyecto
+PUT http://localhost:3000/projects/c0070283-49ab-4ff8-ae27-3a2cf091ae02
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgxODEyNywiZXhwIjoxNzIzODIxNzI3fQ.gp6mPPiTOPlVyO9agdEY1MOin5mOMNzqfSybuyGaSTI
+Content-Type: application/json
+
+{
+  "name":"testproyectUpdated",
+  "description":"testdescriptionUpdated"
+}
+
+### Eliminar un proyecto
+DELETE http://localhost:3000/projects/a780b122-2727-4936-9b48-87c77095039d
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgxODEyNywiZXhwIjoxNzIzODIxNzI3fQ.gp6mPPiTOPlVyO9agdEY1MOin5mOMNzqfSybuyGaSTI
+
+
+
+### ---------------- RUTAS PARA TAREAS
+
+### Crear tarea
+POST http://localhost:3000/tasks/projects/c0070283-49ab-4ff8-ae27-3a2cf091ae02
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgxODEyNywiZXhwIjoxNzIzODIxNzI3fQ.gp6mPPiTOPlVyO9agdEY1MOin5mOMNzqfSybuyGaSTI
+Content-Type: application/json
+
+{
+  "title":"TAREA1",
+  "description":"TAREA1"
+}
+
+### Obtener todas las tareas de un proyecto
+GET http://localhost:3000/tasks/projects/c0070283-49ab-4ff8-ae27-3a2cf091ae02
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgxODEyNywiZXhwIjoxNzIzODIxNzI3fQ.gp6mPPiTOPlVyO9agdEY1MOin5mOMNzqfSybuyGaSTI
+
+### Obtener una tarea por id
+GET http://localhost:3000/tasks/projects/c0070283-49ab-4ff8-ae27-3a2cf091ae02/tasks/4cde9c9a-ef1c-4b21-8e67-278ab7135f3c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgxODEyNywiZXhwIjoxNzIzODIxNzI3fQ.gp6mPPiTOPlVyO9agdEY1MOin5mOMNzqfSybuyGaSTI
+
+### Actualizar una tarea
+PUT http://localhost:3000/tasks/projects/c0070283-49ab-4ff8-ae27-3a2cf091ae02/tasks/4cde9c9a-ef1c-4b21-8e67-278ab7135f3c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgxODEyNywiZXhwIjoxNzIzODIxNzI3fQ.gp6mPPiTOPlVyO9agdEY1MOin5mOMNzqfSybuyGaSTI
+Content-Type: application/json
+
+{
+  "status":"completed"
+}
+
+### Eliminar una tarea
+DELETE http://localhost:3000/tasks/projects/c0070283-49ab-4ff8-ae27-3a2cf091ae02/tasks/4cde9c9a-ef1c-4b21-8e67-278ab7135f3c
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgxODEyNywiZXhwIjoxNzIzODIxNzI3fQ.gp6mPPiTOPlVyO9agdEY1MOin5mOMNzqfSybuyGaSTI

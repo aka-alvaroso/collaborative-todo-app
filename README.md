@@ -1,2 +1,9 @@
 # collaborative-todo-app
-**Proyecto personal** - Aplicación para manejar proyectos y tareas entre varios usuarios, pudiendo completarlas, asignarlas a otros usuarios, eliminarlas, etcétera.
+Proyecto personal sobre una aplicación para manejar proyectos y tareas entre varios usuarios.
+
+## Funcionalidades básicas
+1. Autenticación: Registro e inicio de sesión de usuarios.
+2. Gestión de proyectos: Crear, ver, editar y eliminar proyectos.
+3. Gestión de tareas: Crear, ver, editar y eliminar tareas dentro de proyectos.
+
+

@@ -1,68 +1,88 @@
 // /controllers/projectController.js
-const { projects } = require('../db');
+const Project = require('../models/Project');
 const { v4: uuidv4 } = require('uuid');
 
 // Crear un nuevo proyecto
-exports.createProject = (req, res) => {
+exports.createProject = async (req, res) => {
   const { name, description } = req.body;
 
   if (!name || !description) {
     return res.status(400).json({ message: 'Name and description are required' });
   }
 
-  const newProject = {
-    id: uuidv4(),
-    name,
-    description,
-    owner: req.user.id // Asumimos que 'req.user' es el usuario autenticado
-  };
+  try {
+    const newProject = new Project({ name, description });
+    await newProject.save();
 
-  projects.push(newProject);
-  res.status(201).json(newProject);
+    res.status(201).json({ message: 'Project created successfully', project: newProject });
+  } catch (error) {
+    res.status(500).json({ message: 'Error creating project', error });
+  }
 };
 
 // Obtener todos los proyectos
-exports.getAllProjects = (req, res) => {
-  const userProjects = projects.filter(project => project.owner === req.user.id);
-  res.status(200).json(userProjects);
+exports.getAllProjects = async (req, res) => {
+  try {
+    const projects = await Project.find();
+    res.status(200).json(projects);
+  } catch (error) {
+    res.status(500).json({ message: 'Error retrieving projects', error });
+  }
 }
 
 // Obtener un proyecto por ID
-exports.getProjectById = (req, res) => {
-  const projectId = req.params.id;
-  const project = projects.find(p => p.id === projectId && p.owner === req.user.id);
+exports.getProjectById = async (req, res) => {
+  const { id } = req.params;
 
-  if (!project) {
-    return res.status(404).json({ message: 'Project not found' });
+  try {
+    const project = await Project.findById(id);
+    if (!project) {
+      return res.status(404).json({ message: 'Project not found' });
+    }
+
+    res.status(200).json(project);
+  } catch (error) {
+    res.status(500).json({ message: 'Error retrieving project', error });
   }
-
-  return res.status(200).json(project);
-}
-
-exports.updateProject = (req, res) => {
-  const projectId = req.params.id;
-  const { name, description } = req.body;
-  const project = projects.find(p => p.id === projectId && p.owner === req.user.id);
-
-  if (!project) {
-    return res.status(404).json({ message: 'Project not found' });
-  }
-
-  if (name) project.name = name;
-  if (description) project.description = description;
-
-  res.status(200).json(project);
 };
+
+// Actualizar un proyecto
+exports.updateProject = async (req, res) => {
+  const { id } = req.params;
+  const { name, description } = req.body;
+
+  try {
+    const updatedProject = await Project.findByIdAndUpdate(
+      id,
+      { name, description },
+      { new: true, runValidators: true }
+    );
+
+    if (!updatedProject) {
+      return res.status(404).json({ message: 'Project not found' });
+    }
+
+    res.status(200).json({ message: 'Project updated successfully', project: updatedProject });
+  } catch (error) {
+    res.status(500).json({ message: 'Error updating project', error });
+  }
+};
+
 
 // Eliminar un proyecto
-exports.deleteProject = (req, res) => {
-  const projectId = req.params.id;
-  const projectIndex = projects.findIndex(p => p.id === projectId && p.owner === req.user.id);
+exports.deleteProject = async (req, res) => {
+  const { id } = req.params;
 
-  if (projectIndex === -1) {
-    return res.status(404).json({ message: 'Project not found' });
+  try {
+    const deletedProject = await Project.findByIdAndDelete(id);
+
+    if (!deletedProject) {
+      return res.status(404).json({ message: 'Project not found' });
+    }
+
+    res.status(200).json({ message: 'Project deleted successfully' });
+  } catch (error) {
+    res.status(500).json({ message: 'Error deleting project', error });
   }
-
-  projects.splice(projectIndex, 1);
-  res.status(204).end();
 };
+

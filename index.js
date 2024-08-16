@@ -4,12 +4,12 @@ const app = express();
 const authRoutes = require('./routes/authRoutes');
 const projectRoutes = require('./routes/projectRoutes');
 const taskRoutes = require('./routes/taskRoutes');
-const mongoose = require('mongoose');
+const connectDB = require('./db');
 
-const mongoURI =
+// Conexión a MongoDB
+connectDB();
 
-
-  app.use(express.json());
+app.use(express.json());
 
 // Autenticación
 app.use('/auth', authRoutes);

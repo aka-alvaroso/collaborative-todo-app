@@ -25,61 +25,59 @@ Content-Type: application/json
 
 ### Crear proyecto
 POST http://localhost:3000/projects
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgxODEyNywiZXhwIjoxNzIzODIxNzI3fQ.gp6mPPiTOPlVyO9agdEY1MOin5mOMNzqfSybuyGaSTI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgyOTAwNSwiZXhwIjoxNzIzODMyNjA1fQ.W-QskuyO5siwXSuMi1Jlwv3g6Fg9SLU-McbhtCyU0nY
 Content-Type: application/json
 
 {
-  "name":"testproyect",
-  "description":"testdescription"
+  "name":"Proyecto 3",
+  "description":"Descripcion del proyecto 3"
 }
 
 ### Obtener todos los proyectos
 GET http://localhost:3000/projects
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgxODEyNywiZXhwIjoxNzIzODIxNzI3fQ.gp6mPPiTOPlVyO9agdEY1MOin5mOMNzqfSybuyGaSTI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgyOTAwNSwiZXhwIjoxNzIzODMyNjA1fQ.W-QskuyO5siwXSuMi1Jlwv3g6Fg9SLU-McbhtCyU0nY
 
 ### Obtener un proyecto por ID
-GET http://localhost:3000/projects/a780b122-2727-4936-9b48-87c77095039d
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgxODEyNywiZXhwIjoxNzIzODIxNzI3fQ.gp6mPPiTOPlVyO9agdEY1MOin5mOMNzqfSybuyGaSTI
+GET http://localhost:3000/projects/66bf7eb7f306831ecb239453
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgyOTAwNSwiZXhwIjoxNzIzODMyNjA1fQ.W-QskuyO5siwXSuMi1Jlwv3g6Fg9SLU-McbhtCyU0nY
 
 ### Actualizar un proyecto
-PUT http://localhost:3000/projects/c0070283-49ab-4ff8-ae27-3a2cf091ae02
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgxODEyNywiZXhwIjoxNzIzODIxNzI3fQ.gp6mPPiTOPlVyO9agdEY1MOin5mOMNzqfSybuyGaSTI
+PUT http://localhost:3000/projects/66bf8823c300fd6c9bdf8842
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgyOTAwNSwiZXhwIjoxNzIzODMyNjA1fQ.W-QskuyO5siwXSuMi1Jlwv3g6Fg9SLU-McbhtCyU0nY
 Content-Type: application/json
 
 {
-  "name":"testproyectUpdated",
-  "description":"testdescriptionUpdated"
+  "name":"Proyecto 3",
+  "description":"Descripcion del proyecto 3"
 }
 
 ### Eliminar un proyecto
-DELETE http://localhost:3000/projects/a780b122-2727-4936-9b48-87c77095039d
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgxODEyNywiZXhwIjoxNzIzODIxNzI3fQ.gp6mPPiTOPlVyO9agdEY1MOin5mOMNzqfSybuyGaSTI
+DELETE http://localhost:3000/projects/66bf7eb7f306831ecb239453
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgyOTAwNSwiZXhwIjoxNzIzODMyNjA1fQ.W-QskuyO5siwXSuMi1Jlwv3g6Fg9SLU-McbhtCyU0nY
 
 
 
 ### ---------------- RUTAS PARA TAREAS
 
 ### Crear tarea
-POST http://localhost:3000/tasks/projects/c0070283-49ab-4ff8-ae27-3a2cf091ae02
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgxODEyNywiZXhwIjoxNzIzODIxNzI3fQ.gp6mPPiTOPlVyO9agdEY1MOin5mOMNzqfSybuyGaSTI
+POST http://localhost:3000/tasks/projects/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgyOTAwNSwiZXhwIjoxNzIzODMyNjA1fQ.W-QskuyO5siwXSuMi1Jlwv3g6Fg9SLU-McbhtCyU0nY
 Content-Type: application/json
 
 {
-  "title":"TAREA1",
-  "description":"TAREA1"
+  "title": "Tarea 2",
+  "description": "Esta es la tarea 2",
+  "projectId": "66bf8b296591c6ca98d7be47"
+
 }
 
 ### Obtener todas las tareas de un proyecto
-GET http://localhost:3000/tasks/projects/c0070283-49ab-4ff8-ae27-3a2cf091ae02
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgxODEyNywiZXhwIjoxNzIzODIxNzI3fQ.gp6mPPiTOPlVyO9agdEY1MOin5mOMNzqfSybuyGaSTI
-
-### Obtener una tarea por id
-GET http://localhost:3000/tasks/projects/c0070283-49ab-4ff8-ae27-3a2cf091ae02/tasks/4cde9c9a-ef1c-4b21-8e67-278ab7135f3c
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgxODEyNywiZXhwIjoxNzIzODIxNzI3fQ.gp6mPPiTOPlVyO9agdEY1MOin5mOMNzqfSybuyGaSTI
+GET http://localhost:3000/tasks/projects/66bf8b296591c6ca98d7be47
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgyOTAwNSwiZXhwIjoxNzIzODMyNjA1fQ.W-QskuyO5siwXSuMi1Jlwv3g6Fg9SLU-McbhtCyU0nY
 
 ### Actualizar una tarea
-PUT http://localhost:3000/tasks/projects/c0070283-49ab-4ff8-ae27-3a2cf091ae02/tasks/4cde9c9a-ef1c-4b21-8e67-278ab7135f3c
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgxODEyNywiZXhwIjoxNzIzODIxNzI3fQ.gp6mPPiTOPlVyO9agdEY1MOin5mOMNzqfSybuyGaSTI
+PUT http://localhost:3000/tasks/projects/66bf8bc66591c6ca98d7be51
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgyOTAwNSwiZXhwIjoxNzIzODMyNjA1fQ.W-QskuyO5siwXSuMi1Jlwv3g6Fg9SLU-McbhtCyU0nY
 Content-Type: application/json
 
 {
@@ -87,5 +85,5 @@ Content-Type: application/json
 }
 
 ### Eliminar una tarea
-DELETE http://localhost:3000/tasks/projects/c0070283-49ab-4ff8-ae27-3a2cf091ae02/tasks/4cde9c9a-ef1c-4b21-8e67-278ab7135f3c
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgxODEyNywiZXhwIjoxNzIzODIxNzI3fQ.gp6mPPiTOPlVyO9agdEY1MOin5mOMNzqfSybuyGaSTI
+DELETE http://localhost:3000/tasks/projects/66bf8b9e6591c6ca98d7be4e
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJ0ZXN0dXNlciIsImlhdCI6MTcyMzgyOTAwNSwiZXhwIjoxNzIzODMyNjA1fQ.W-QskuyO5siwXSuMi1Jlwv3g6Fg9SLU-McbhtCyU0nY

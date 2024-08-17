@@ -22,4 +22,7 @@ router.put('/:id', projectController.updateProject);
 // Eliminar un proyecto
 router.delete('/:id', projectController.deleteProject);
 
+// Añadir colaboradores
+router.post('/:id/collaborators', authMiddleware, projectController.addCollaborator);
+
 module.exports = router;

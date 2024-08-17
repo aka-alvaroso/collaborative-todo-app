@@ -26,7 +26,7 @@ exports.getTasksByProjectId = async (req, res) => {
   const { projectId } = req.params;
 
   try {
-    const tasks = await Task.find({ projectId });
+    const tasks = await Task.find({ projectId }).populate('projectId', 'name');
 
     if (!tasks.length) {
       return res.status(404).json({ message: 'No tasks found for this project' });

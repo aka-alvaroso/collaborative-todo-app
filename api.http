@@ -57,6 +57,16 @@ DELETE http://localhost:3000/projects/66bf7eb7f306831ecb239453
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YzBiOWUwMWZhYmNmMzM1Mjk5MTJmOCIsInVzZXJuYW1lIjoicGVwZWxvdGFzMTIiLCJpYXQiOjE3MjM5MDY4NDEsImV4cCI6MTcyMzkxMDQ0MX0.e4YBgxvIEqvhQEwB2X6yOFAiGhz6P_3PPcwqd50kgoc
 
 
+### Añadir un colaborador a un proyecto
+POST http://localhost:3000/projects/66c0bb37c7bb92e81fd2b26e/collaborators
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YzBiOWUwMWZhYmNmMzM1Mjk5MTJmOCIsInVzZXJuYW1lIjoicGVwZWxvdGFzMTIiLCJpYXQiOjE3MjM5MDY4NDEsImV4cCI6MTcyMzkxMDQ0MX0.e4YBgxvIEqvhQEwB2X6yOFAiGhz6P_3PPcwqd50kgoc
+Content-Type: application/json
+
+{
+  "collaboratorId": "66c0bcbc68ffafd7a8ecfebb"
+}
+
+
 
 ### ---------------- RUTAS PARA TAREAS
 
@@ -87,3 +97,4 @@ Content-Type: application/json
 ### Eliminar una tarea
 DELETE http://localhost:3000/tasks/projects/66bf8b9e6591c6ca98d7be4e
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YzBiOWUwMWZhYmNmMzM1Mjk5MTJmOCIsInVzZXJuYW1lIjoicGVwZWxvdGFzMTIiLCJpYXQiOjE3MjM5MDY4NDEsImV4cCI6MTcyMzkxMDQ0MX0.e4YBgxvIEqvhQEwB2X6yOFAiGhz6P_3PPcwqd50kgoc
+

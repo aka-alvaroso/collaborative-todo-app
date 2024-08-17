@@ -27,7 +27,13 @@ exports.createProject = async (req, res) => {
 // Obtener todos los proyectos
 exports.getAllProjects = async (req, res) => {
   try {
-    const projects = await Project.find({ owner: req.user.id }).populate('owner', 'username');
+    const projects = await Project.find({
+      $or: [
+        { owner: req.user.id },
+        { collaborators: req.user.id }
+      ]
+    }).populate('owner', 'username')
+      .populate('collaborators', 'username');
     res.status(200).json(projects);
   } catch (error) {
     res.status(500).json({ message: 'Error fetching projects', error });

@@ -1,21 +1,28 @@
-// src/App.js
+// App.js
+
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Register from './views/Register';
-import Login from './views/Login';
-import Dashboard from './views/Dashboard';
-import PrivateRoute from './components/PrivateRoute'; // Importa el componente PrivateRoute
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
+// Importa las páginas que vamos a crear
+import HomePage from './pages/HomePage';
+import RegisterPage from './pages/RegisterPage';
+import LoginPage from './pages/LoginPage';
+import DashboardPage from './pages/DashboardPage';
+import ProjectPage from './pages/ProjectPage';
+import NotFoundPage from './pages/NotFoundPage';
 
 function App () {
   return (
-    <BrowserRouter>
+    <Router>
       <Routes>
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/dashboard" element={<PrivateRoute element={<Dashboard />} />} />
-        {/* Puedes agregar más rutas aquí */}
+        <Route path="/" element={<HomePage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/dashboard" element={<DashboardPage />} />
+        <Route path="/projects/:id" element={<ProjectPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </BrowserRouter>
+    </Router>
   );
 }
 

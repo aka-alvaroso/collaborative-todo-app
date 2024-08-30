@@ -21,11 +21,16 @@ Content-Type: application/json
 }
 
 
+### VERIFICAR TOKEN
+GET http://localhost:3001/auth/verify
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2Y2M0NGJiZWIzNmQ3NzI5MTU1OWZmNCIsInVzZXJuYW1lIjoicGVwZWxvdGFzMTQiLCJpYXQiOjE3MjQ2OTAzNjUsImV4cCI6MTcyNDY5Mzk2NX0.ZOKaLhBskBHz-rDaugFcBrqs1uKYhFmppl4iFpmMUT0
+
+
 ### ---------------- RUTAS PARA PROYECTOS
 
 ### Crear proyecto
 POST http://localhost:3001/projects
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YzIzZTA4YmRjMTBkYjQ5MTdmMTc4YiIsInVzZXJuYW1lIjoicGVwZWxvdGFzMTQiLCJpYXQiOjE3MjQwMDYyMTEsImV4cCI6MTcyNDAwOTgxMX0.qNOVH-dJwHmqD_VycuHIZG6lFdYYjEBy4xa1tPfsFbc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2Y2M0NGJiZWIzNmQ3NzI5MTU1OWZmNCIsInVzZXJuYW1lIjoicGVwZWxvdGFzMTQiLCJpYXQiOjE3MjQ2OTM1MTYsImV4cCI6MTcyNDY5NzExNn0.XSTKJ6djBFYJGMscYe8IKsdxD_SZ9bOGfl5i0ouKZ5A
 Content-Type: application/json
 
 {
@@ -35,7 +40,7 @@ Content-Type: application/json
 
 ### Obtener todos los proyectos
 GET http://localhost:3001/projects
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YzBiY2JjNjhmZmFmZDdhOGVjZmViYiIsInVzZXJuYW1lIjoicGVwZWxvdGFzMTMiLCJpYXQiOjE3MjM5MDcyNzAsImV4cCI6MTcyMzkxMDg3MH0.1AVthWHxiBbh3zSb4iIDovykbdBRzJ8fdokfE665sqg
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2Y2M0NGJiZWIzNmQ3NzI5MTU1OWZmNCIsInVzZXJuYW1lIjoicGVwZWxvdGFzMTQiLCJpYXQiOjE3MjQ2NjcwMDgsImV4cCI6MTcyNDY3MDYwOH0.VMUk9CrtdA6dDq02tSvWzUoHEncghHeNMBJFIUqDmSQ
 # Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2YzBiOWUwMWZhYmNmMzM1Mjk5MTJmOCIsInVzZXJuYW1lIjoicGVwZWxvdGFzMTIiLCJpYXQiOjE3MjM5MDY4NDEsImV4cCI6MTcyMzkxMDQ0MX0.e4YBgxvIEqvhQEwB2X6yOFAiGhz6P_3PPcwqd50kgoc
 
 ### Obtener un proyecto por ID

@@ -10,6 +10,7 @@ import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
 import ProjectPage from './pages/ProjectPage';
 import NotFoundPage from './pages/NotFoundPage';
+import PrivateRoute from './components/PrivateRoute';
 
 function App () {
   return (
@@ -18,8 +19,11 @@ function App () {
         <Route path="/" element={<HomePage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/dashboard" element={<DashboardPage />} />
-        <Route path="/projects/:id" element={<ProjectPage />} />
+        <Route element={<PrivateRoute />}>
+          <Route path="/dashboard" element={<DashboardPage />} />
+          <Route path="/projects/:id" element={<ProjectPage />} />
+          {/* Otras rutas protegidas */}
+        </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </Router>
